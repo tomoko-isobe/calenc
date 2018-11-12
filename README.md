@@ -1,6 +1,8 @@
 # Calenc
 
-Calencは曜日付きの日付リストを作成するツールです。
+Calencは曜日付きの日付リストをクリップボードにコピーするツールです。
+
+[TECiY勉強会「ゼロからはじめるBDD」](https://teciy.connpass.com/event/109125/) の題材です。
 
 ## Installation
 
