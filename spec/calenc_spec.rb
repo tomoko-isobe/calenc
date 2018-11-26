@@ -1,9 +1,5 @@
-RSpec.describe Calenc do
+describe Calenc do
   it "has a version number" do
-    expect(Calenc::VERSION).not_to be nil
-  end
-
-  it "does something useful" do
-    expect(false).to eq(true)
+    expect(Calenc::Version).not_to be nil
   end
 end
