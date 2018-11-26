@@ -5,7 +5,7 @@ require "calenc/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "calenc"
-  spec.version       = Calenc::VERSION
+  spec.version       = Calenc::Version
   spec.authors       = ["磯部朋子"]
   spec.email         = ["isobe@humancrest.co.jp"]
 
