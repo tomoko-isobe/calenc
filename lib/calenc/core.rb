@@ -9,7 +9,7 @@ module Calenc
     end
 
     WeekdayJp= "日月火水木金土".split('')
-    def clip
+    def to_s
       str= ''
       @count.times do |i|
         date= @start_date+ i
@@ -17,7 +17,7 @@ module Calenc
         s << "(%s)\n" % WeekdayJp[date.wday]
         str << s
       end
-      Clipboard.copy(str)
+      str
     end
   end
 end
