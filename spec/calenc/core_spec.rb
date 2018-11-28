@@ -51,4 +51,14 @@ describe ::Calenc::Core do
       end
     end
   end
+
+  describe '#complete?' do
+    let(:calenc){ Calenc::Core.new(*params) }
+    let(:date){ Date.new(2018,11,29) }
+    let(:params){ [3, date] }
+
+    it 'デフォルトは True' do
+      expect(calenc.complete?).to be_truthy
+    end
+  end
 end
