@@ -2,9 +2,9 @@ require 'date'
 
 module Calenc
   class Core
-    def initialize(count=7)
+    def initialize(count=7, date= Date.today)
       @count= count
-      @start_date= Date.today
+      @start_date= date
     end
 
     WeekdayJp= "日月火水木金土".split('')
