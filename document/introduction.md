@@ -28,25 +28,9 @@ BDDというのは手法であり、考え方なので、当然ながら、Rspec
 しかし、BDDの考え方にうまくフィットするように、Rspec は作られています。
 以下のコード例は、xUnit系のユニットテストフレームワークの Minitest で書いたテストと、同じ内容をRspecで書いたものです。
 
+![fig-intro-01](images/fig-intro-01.png)
 
-Minitest
-```
-class SandwichTest < ActiveSupport::TestCase
-  test "taste delicious" do
-    sandwich= Sandwich.new('delicious')
-    taste= sandwich.taste
-    assert_equal( taste, 'delicious' )
-  end
-end
-```
+Minitest と Rspec で同じ記載をしている部分もあることが判ります。
+Minitestの「テストする」、Rspecの「仕様を書く」というそれぞれの表現を比較してみてください。
 
-Rspec
-```
-desribe Sandwich do
-  it 'is delicious' do
-    sandwich= Sandwich.new('delicious')
-    taste= sandwich.taste
-    expect(taste).to eq('delicious')
-  end
-end
-```
+![fig-intro-01](images/fig-intro-02.png)
