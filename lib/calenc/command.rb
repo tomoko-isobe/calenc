@@ -9,6 +9,7 @@ module Calenc
 
       count= params['count'].to_i
       count= 7 unless count > 0
+
       interactive= params['interactive']
 
       calenc= Calenc::Core.new(count, Date.today, interactive)
