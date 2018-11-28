@@ -1,11 +1,10 @@
 require 'date'
-require 'clipboard'
 
 module Calenc
   class Core
-    def initialize(count)
-      @count= count.to_i
-      @start_date= Date.today
+    def initialize(count=7, date=Date.today)
+      @count= count
+      @start_date= date
     end
 
     WeekdayJp= "日月火水木金土".split('')
