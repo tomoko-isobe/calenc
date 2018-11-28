@@ -4,7 +4,12 @@ module Calenc
   class Core
     def initialize(count=7, date= Date.today)
       @count= count
-      @start_date= date
+      case date
+      when Date
+        @start_date= date
+      when String
+        @start_date= Date.parse(date)
+      end
     end
 
     WeekdayJp= "日月火水木金土".split('')
