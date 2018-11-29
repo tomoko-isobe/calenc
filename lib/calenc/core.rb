@@ -30,7 +30,6 @@ module Calenc
     def complete?
       @complete
     end
-<<<<<<< d31889be9278e4227b785abb9b0d310b148cd297
 
     def output
       'This is interactive mode. Input something: '
@@ -39,7 +38,5 @@ module Calenc
     def input(str)
       @complete= true
     end
-=======
->>>>>>> Implement Core#comlete?
   end
 end
