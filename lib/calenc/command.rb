@@ -1,5 +1,5 @@
 require 'optparse'
-require 'clipboard'
+# require 'clipboard'
 
 
 module Calenc
@@ -9,7 +9,8 @@ module Calenc
       count= params['count'].to_i
       count= 7 unless count > 0
       str= Calenc::Core.new(count).to_s
-      Clipboard.copy(str)
+      # Clipboard.copy(str)
+      print str
     end
   end
 end
