@@ -30,5 +30,13 @@ module Calenc
     def complete?
       @complete
     end
+
+    def output
+      'This is interactive mode. Input something: '
+    end
+
+    def input(str)
+      @complete= true
+    end
   end
 end

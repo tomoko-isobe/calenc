@@ -70,4 +70,25 @@ describe ::Calenc::Core do
       end
     end
   end
+
+  describe '#output' do
+    let(:calenc){ Calenc::Core.new(*params) }
+    let(:date){ Date.new(2018,11,29) }
+    let(:params){ [3, date, true] }
+
+    it '出力するメッセージを返す' do
+      expect(calenc.output).to be_a(String)
+    end
+  end
+
+  describe '#input' do
+    let(:calenc){ Calenc::Core.new(*params) }
+    let(:date){ Date.new(2018,11,29) }
+    let(:params){ [3, date, true] }
+
+    it '値を受け取って、complete? を trueにする' do
+      calenc.input 'something'
+      expect(calenc.complete?).to be_truthy
+    end
+  end
 end

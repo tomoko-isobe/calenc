@@ -13,6 +13,11 @@ module Calenc
       interactive= params['interactive']
 
       calenc= Calenc::Core.new(count, Date.today, interactive)
+      until calenc.complete? do
+        puts calenc.output
+        calenc.input(gets)
+      end
+
       str= calenc.to_s
       print str
     end
