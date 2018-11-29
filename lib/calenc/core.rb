@@ -14,6 +14,7 @@ module Calenc
 
       @complete= !interactive
     end
+    attr_reader :count
 
     WeekdayJp= "日月火水木金土".split('')
     def to_s
@@ -32,10 +33,12 @@ module Calenc
     end
 
     def output
-      'This is interactive mode. Input something: '
+      'Count of days: '
     end
 
     def input(str)
+      count= str.to_i
+      @count= count if count > 0
       @complete= true
     end
   end

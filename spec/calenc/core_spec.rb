@@ -83,5 +83,10 @@ describe ::Calenc::Core do
       calenc.input 'something'
       expect(calenc.complete?).to be_truthy
     end
+
+    it '日数を入力すると値がセットされる' do
+      calenc.input '7'
+      expect(calenc.count).to be 7
+    end
   end
 end
