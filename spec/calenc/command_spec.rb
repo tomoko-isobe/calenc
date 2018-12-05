@@ -18,7 +18,14 @@ describe ::Calenc::Command do
     it 'days count' do
       ARGV.clear
       ARGV.concat(["--count", "3"])
-      expect(Calenc::Core).to receive(:new).with(3)
+      expect(Calenc::Core).to receive(:new).with(3, anything, anything)
+      Calenc::Command.run
+    end
+
+    it 'interactive flag' do
+      ARGV.clear
+      ARGV.concat(["--interactive"])
+      expect(Calenc::Core).to receive(:new).with(anything, anything, true)
       Calenc::Command.run
     end
   end
