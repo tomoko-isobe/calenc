@@ -2,14 +2,17 @@ require 'date'
 
 module Calenc
   class Core
-    def initialize(count=7, date= Date.today)
+    def initialize(count=7, date= Date.today, interactive=false)
       @count= count
+
       case date
       when Date
         @start_date= date
       when String
         @start_date= Date.parse(date)
       end
+
+      @complete= !interactive
     end
 
     WeekdayJp= "日月火水木金土".split('')
@@ -22,6 +25,10 @@ module Calenc
         str << s
       end
       str
+    end
+
+    def complete?
+      @complete
     end
   end
 end

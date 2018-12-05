@@ -55,10 +55,19 @@ describe ::Calenc::Core do
   describe '#complete?' do
     let(:calenc){ Calenc::Core.new(*params) }
     let(:date){ Date.new(2018,11,29) }
-    let(:params){ [3, date] }
 
-    it 'デフォルトは True' do
-      expect(calenc.complete?).to be_truthy
+    context 'interactive を false にしたとき' do
+      let(:params){ [3, date, false] }
+      it 'デフォルトは true' do
+        expect(calenc.complete?).to be_truthy
+      end
+    end
+
+    context 'interactive を true にしたとき' do
+      let(:params){ [3, date, true] }
+      it 'デフォルトが false' do
+        expect(calenc.complete?).to be_falsey
+      end
     end
   end
 end
