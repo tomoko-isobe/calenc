@@ -1,4 +1,6 @@
 describe ::Calenc::Core do
+  let(:date){ Date.new(2018,11,29) }
+
   describe '#initialize' do
     it 'return something' do
       core= Calenc::Core.new
@@ -13,7 +15,6 @@ describe ::Calenc::Core do
 
   describe '#to_s' do
     let(:str){ Calenc::Core.new(*params).to_s }
-    let(:date){ Date.new(2018,11,29) }
 
     context 'パラメータを指定しない場合' do
       let(:params){ nil }
@@ -54,7 +55,6 @@ describe ::Calenc::Core do
 
   describe '#complete?' do
     let(:calenc){ Calenc::Core.new(*params) }
-    let(:date){ Date.new(2018,11,29) }
 
     context 'interactive を false にしたとき' do
       let(:params){ [3, date, false] }
@@ -73,7 +73,6 @@ describe ::Calenc::Core do
 
   describe '#output' do
     let(:calenc){ Calenc::Core.new(*params) }
-    let(:date){ Date.new(2018,11,29) }
     let(:params){ [3, date, true] }
 
     it '出力するメッセージを返す' do
@@ -83,7 +82,6 @@ describe ::Calenc::Core do
 
   describe '#input' do
     let(:calenc){ Calenc::Core.new(*params) }
-    let(:date){ Date.new(2018,11,29) }
     let(:params){ [3, date, true] }
 
     it '値を受け取って、complete? を trueにする' do
