@@ -12,7 +12,18 @@ module Calenc
         @start_date= Date.parse(date)
       end
 
-      @complete= !interactive
+      if interactive
+        @responses= 0
+      else
+        @responses= Float::INFINITY
+      end
+
+      @messages=[
+        "Count of days: ",
+      ]
+      @do=[
+        :set_days_count,
+      ]
     end
     attr_reader :count
 
@@ -29,17 +40,21 @@ module Calenc
     end
 
     def complete?
-      @complete
+      @messages.size <= @responses
     end
 
     def output
-      'Count of days: '
+      @messages[@responses]
     end
 
     def input(str)
+      send(@do[@responses], str)
+      @responses+=1
+    end
+
+    def set_days_count(str)
       count= str.to_i
       @count= count if count > 0
-      @complete= true
     end
   end
 end

@@ -89,4 +89,12 @@ describe ::Calenc::Core do
       expect(calenc.count).to be 7
     end
   end
+
+  describe '#set_days_count' do
+    let(:params){ [7, date, true] }
+    it '日数をセットする' do
+      calenc.set_days_count('3')
+      expect(calenc.instance_variable_get('@count')).to be 3
+    end
+  end
 end
