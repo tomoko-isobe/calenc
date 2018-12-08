@@ -79,14 +79,10 @@ describe ::Calenc::Core do
 
   describe '#input' do
     let(:params){ [3, date, true] }
-    it '値を受け取って、complete? を trueにする' do
+    it '値を受け取って、responses を 1つ増やす' do
+      expect(calenc).to receive(:set_start_date).with('something')
       calenc.input 'something'
-      expect(calenc.complete?).to be_truthy
-    end
-
-    it '日数を入力すると値がセットされる' do
-      calenc.input '7'
-      expect(calenc.count).to be 7
+      expect(calenc.instance_variable_get(:@responses)).to eq 1
     end
   end
 
@@ -95,6 +91,14 @@ describe ::Calenc::Core do
     it '日数をセットする' do
       calenc.set_days_count('3')
       expect(calenc.count).to be 3
+    end
+  end
+
+  describe '#set_start_date' do
+    let(:params){ [7, date, true] }
+    it '日付をセットする' do
+      calenc.set_start_date('2018-12-01')
+      expect(calenc.instance_variable_get(:@start_date)).to eq Date.new(2018,12,1)
     end
   end
 end
