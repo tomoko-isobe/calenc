@@ -19,9 +19,11 @@ module Calenc
       end
 
       @messages=[
+        "Start date: ",
         "Count of days: ",
       ]
       @do=[
+        :set_start_date,
         :set_days_count,
       ]
     end
@@ -50,6 +52,15 @@ module Calenc
     def input(str)
       send(@do[@responses], str)
       @responses+=1
+    end
+
+    def set_start_date(str)
+      case str
+      when Date
+        @start_date= str
+      when String
+        @start_date= Date.parse(str)
+      end
     end
 
     def set_days_count(str)
