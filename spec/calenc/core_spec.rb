@@ -28,18 +28,26 @@ describe ::Calenc::Core do
     end
 
     context '日付を指定した場合' do
-      let(:params){ [7, date] }
+      context 'Date形式' do
+        let(:params){ [7, date] }
+        it { expect(str).to eq "11/29(木)\n11/30(金)\n12/01(土)\n12/02(日)\n12/03(月)\n12/04(火)\n12/05(水)\n" }
+      end
 
-      it '指定した日付から一週間分の日付の文字列を返すこと' do
-        expect(str).to eq "11/29(木)\n11/30(金)\n12/01(土)\n12/02(日)\n12/03(月)\n12/04(火)\n12/05(水)\n"
+      context '文字列形式' do
+        let(:params){ [7, '2018-11-29'] }
+        it { expect(str).to eq "11/29(木)\n11/30(金)\n12/01(土)\n12/02(日)\n12/03(月)\n12/04(火)\n12/05(水)\n" }
       end
     end
 
     context '日数を指定した場合' do
-      let(:params){ [3, date] }
+      context 'count: 3' do
+        let(:params){ [3, date] }
+        it { expect(str).to eq "11/29(木)\n11/30(金)\n12/01(土)\n" }
+      end
 
-      it '指定した日数分の日付の文字列を返すこと' do
-        expect(str).to eq "11/29(木)\n11/30(金)\n12/01(土)\n"
+      context 'count: 0' do
+        let(:params){ [0, date] }
+        it { expect(str).to eq "" }
       end
     end
   end
